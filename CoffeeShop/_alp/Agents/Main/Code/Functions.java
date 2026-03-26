@@ -32,3 +32,19 @@ if (reviewsAffectArrivalRate) {
 }
 /*ALCODEEND*/}
 
+double getCustomerInterarrivalTime()
+{/*ALCODESTART::1774534019690*/
+double timeOfDay = time() % 1440;
+double interarrivalTime = exponential(arrivalRateMultiplier / baseTimeBetweenArrivals);
+
+if (timeOfDay < dailyOpenTime) {
+    // Before opening: delay until the shop opens today
+    interarrivalTime += dailyOpenTime - timeOfDay;
+} else if (timeOfDay >= dailyCloseTime) {
+    // After closing: delay until the shop opens tomorrow
+    interarrivalTime += 1440.0 - timeOfDay + dailyOpenTime;
+}
+
+return interarrivalTime;
+/*ALCODEEND*/}
+

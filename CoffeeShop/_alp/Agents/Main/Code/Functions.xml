@@ -53,4 +53,21 @@
 		<ShowLabel>true</ShowLabel>
 		<Body xmlns:al="http://anylogic.com"/>
 	</Function>
+	<Function AccessType="default" StaticFunction="false">
+		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+		<ReturnType>double</ReturnType>
+		<Id>1774534019690</Id>
+		<Name><![CDATA[getCustomerInterarrivalTime]]></Name>
+		<Description><![CDATA[Computes the time until the next customer arrival, in minutes. Generates an exponential random variate based on the current arrival rate. If the shop is closed (before dailyOpenTime or after dailyCloseTime), adds the remaining minutes until the next opening time so that no customers arrive while the shop is closed.]]></Description>
+		<X>760</X>
+		<Y>160</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Body xmlns:al="http://anylogic.com"/>
+	</Function>
 </Functions>

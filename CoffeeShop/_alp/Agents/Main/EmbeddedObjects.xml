@@ -36,7 +36,7 @@
 			<Parameter>
 				<Name><![CDATA[interarrivalTime]]></Name>
 				<Value Class="CodeUnitValue">
-					<Code><![CDATA[exponential(arrivalRateMultiplier / baseTimeBetweenArrivals) + ((time() % 1440 < dailyOpenTime) ? (dailyOpenTime - time() % 1440) : ((time() % 1440 >= dailyCloseTime) ? (1440.0 - time() % 1440 + dailyOpenTime) : 0.0))]]></Code>
+					<Code><![CDATA[getCustomerInterarrivalTime()]]></Code>
 					<Unit Class="TimeUnits">MINUTE</Unit>
 				</Value>
 			</Parameter>

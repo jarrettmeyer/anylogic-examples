@@ -182,6 +182,7 @@
 	<Variable Class="Parameter">
 		<Id>1774438531204</Id>
 		<Name><![CDATA[baseTimeBetweenArrivals]]></Name>
+		<Description><![CDATA[Mean minutes between customer arrivals]]></Description>
 		<X>30</X>
 		<Y>270</Y>
 		<Label>
@@ -210,6 +211,7 @@
 	<Variable Class="Parameter">
 		<Id>1774439551074</Id>
 		<Name><![CDATA[modeTimeToFillOrder]]></Name>
+		<Description><![CDATA[Most likely minutes to fill an order (triangular distribution mode)]]></Description>
 		<X>30</X>
 		<Y>310</Y>
 		<Label>
@@ -238,6 +240,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600100001</Id>
 		<Name><![CDATA[minTimeToFillOrder]]></Name>
+		<Description><![CDATA[Minimum minutes to fill an order (triangular distribution lower bound)]]></Description>
 		<X>30</X>
 		<Y>290</Y>
 		<Label>
@@ -266,6 +269,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600100003</Id>
 		<Name><![CDATA[maxTimeToFillOrder]]></Name>
+		<Description><![CDATA[Maximum minutes to fill an order (triangular distribution upper bound)]]></Description>
 		<X>30</X>
 		<Y>330</Y>
 		<Label>
@@ -294,7 +298,7 @@
 	<Variable Class="Parameter">
 		<Id>1774440557659</Id>
 		<Name><![CDATA[dailyOpenTime]]></Name>
-		<Description><![CDATA[What time of day (in minutes) does the coffee shop open?]]></Description>
+		<Description><![CDATA[Minutes from midnight when the shop opens]]></Description>
 		<X>30</X>
 		<Y>210</Y>
 		<Label>
@@ -323,7 +327,7 @@
 	<Variable Class="Parameter">
 		<Id>1774440596339</Id>
 		<Name><![CDATA[dailyCloseTime]]></Name>
-		<Description><![CDATA[What time (in minutes) does the coffee shop close?]]></Description>
+		<Description><![CDATA[Minutes from midnight when the shop closes]]></Description>
 		<X>30</X>
 		<Y>230</Y>
 		<Label>
@@ -352,7 +356,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600000005</Id>
 		<Name><![CDATA[waitTimeSentimentThreshold]]></Name>
-		<Description><![CDATA[Wait time affects the type of review given. Wait times under this threshold will be positive reviews. Wait times over this threshold will be negative.]]></Description>
+		<Description><![CDATA[Wait times below this (minutes) produce a positive experience; at or above, negative]]></Description>
 		<X>210</X>
 		<Y>180</Y>
 		<Label>
@@ -381,6 +385,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600000007</Id>
 		<Name><![CDATA[probabilityReviewGivenPositiveExperience]]></Name>
+		<Description><![CDATA[Probability a satisfied customer leaves a review]]></Description>
 		<X>210</X>
 		<Y>200</Y>
 		<Label>
@@ -409,6 +414,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600000009</Id>
 		<Name><![CDATA[probabilityReviewGivenNegativeExperience]]></Name>
+		<Description><![CDATA[Probability a dissatisfied customer leaves a review]]></Description>
 		<X>210</X>
 		<Y>220</Y>
 		<Label>
@@ -437,7 +443,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600000011</Id>
 		<Name><![CDATA[reviewsAffectArrivalRate]]></Name>
-		<Description><![CDATA[Feature flag for arrival rate modifications]]></Description>
+		<Description><![CDATA[Enables the customer feedback loop; when false, arrival rate is constant]]></Description>
 		<X>210</X>
 		<Y>160</Y>
 		<Label>
@@ -466,6 +472,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600000013</Id>
 		<Name><![CDATA[arrivalMultiplierMin]]></Name>
+		<Description><![CDATA[Arrival rate multiplier when all reviews are negative]]></Description>
 		<X>210</X>
 		<Y>240</Y>
 		<Label>
@@ -494,6 +501,7 @@
 	<Variable Class="Parameter">
 		<Id>1774600000015</Id>
 		<Name><![CDATA[arrivalMultiplierMax]]></Name>
+		<Description><![CDATA[Arrival rate multiplier when all reviews are positive]]></Description>
 		<X>210</X>
 		<Y>260</Y>
 		<Label>
@@ -522,7 +530,7 @@
 	<Variable Class="Parameter">
 		<Id>1774463014289</Id>
 		<Name><![CDATA[hireWorkers]]></Name>
-		<Description><![CDATA[Feature flag for hiring/firing workers]]></Description>
+		<Description><![CDATA[Enables daily worker hiring and firing; when false, worker count stays at 1]]></Description>
 		<X>500</X>
 		<Y>160</Y>
 		<Label>
@@ -551,6 +559,7 @@
 	<Variable Class="Parameter">
 		<Id>1774463043883</Id>
 		<Name><![CDATA[hireWaitTimeThreshold]]></Name>
+		<Description><![CDATA[Daily average wait time (minutes) that triggers hiring a worker]]></Description>
 		<X>500</X>
 		<Y>200</Y>
 		<Label>
@@ -579,6 +588,7 @@
 	<Variable Class="Parameter">
 		<Id>1774463078711</Id>
 		<Name><![CDATA[fireUtilizationThreshold]]></Name>
+		<Description><![CDATA[Daily worker utilization below which a worker is fired]]></Description>
 		<X>500</X>
 		<Y>220</Y>
 		<Label>
@@ -607,6 +617,7 @@
 	<Variable Class="Parameter">
 		<Id>1774463113720</Id>
 		<Name><![CDATA[workerEfficiencyTable]]></Name>
+		<Description><![CDATA[Efficiency multiplier indexed by worker count]]></Description>
 		<X>500</X>
 		<Y>180</Y>
 		<Label>
