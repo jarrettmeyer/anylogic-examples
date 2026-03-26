@@ -3,8 +3,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1774455238349</Id>
 		<Name><![CDATA[enterQueueTime]]></Name>
-		<X>160</X>
-		<Y>-40</Y>
+		<X>30</X>
+		<Y>30</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -25,8 +25,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1774462815237</Id>
 		<Name><![CDATA[serviceStartTime]]></Name>
-		<X>160</X>
-		<Y>-20</Y>
+		<X>30</X>
+		<Y>50</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>

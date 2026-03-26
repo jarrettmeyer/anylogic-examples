@@ -3,7 +3,7 @@
 	<Event>
 		<Id>1774463404204</Id>
 		<Name><![CDATA[endOfDay]]></Name>
-		<Description><![CDATA[Events that fire at midnight]]></Description>
+		<Description><![CDATA[Evaluates daily wait time and utilization to hire or fire a worker, then resets daily counters.]]></Description>
 		<X>760</X>
 		<Y>60</Y>
 		<Label>

@@ -5,6 +5,7 @@
 		<ReturnType>double</ReturnType>
 		<Id>1774531863650</Id>
 		<Name><![CDATA[resetStartOfDay]]></Name>
+		<Description><![CDATA[Zeros daily accumulators and advances the day counter. Called at the end of each simulated day.]]></Description>
 		<X>760</X>
 		<Y>100</Y>
 		<Label>
@@ -42,6 +43,7 @@
 		<ReturnType>double</ReturnType>
 		<Id>1774532311499</Id>
 		<Name><![CDATA[updateArrivalRate]]></Name>
+		<Description><![CDATA[Recalculates arrivalRateMultiplier from the ratio of positive to total reviews. No-op when reviewsAffectArrivalRate is false.]]></Description>
 		<X>760</X>
 		<Y>140</Y>
 		<Label>
@@ -68,6 +70,44 @@
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
+		<Body xmlns:al="http://anylogic.com"/>
+	</Function>
+	<Function AccessType="default" StaticFunction="false">
+		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+		<ReturnType>double</ReturnType>
+		<Id>1774536242516</Id>
+		<Name><![CDATA[getCustomerServiceTime]]></Name>
+		<Description><![CDATA[Draws a service time from a triangular distribution scaled by worker efficiency. The triangular distribution is safe here because orders are processed atomically — no handoffs or interruptions that would require the memoryless property of an exponential distribution.]]></Description>
+		<X>760</X>
+		<Y>180</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Body xmlns:al="http://anylogic.com"/>
+	</Function>
+	<Function AccessType="default" StaticFunction="false">
+		<ReturnModificator>VOID</ReturnModificator>
+		<ReturnType>double</ReturnType>
+		<Id>1774536272400</Id>
+		<Name><![CDATA[recordCustomerServed]]></Name>
+		<Description><![CDATA[Records daily metrics from a completed service interaction and triggers the review and arrival rate feedback loop.]]></Description>
+		<X>760</X>
+		<Y>200</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Parameter>
+			<Name><![CDATA[customer]]></Name>
+			<Type><![CDATA[Agent]]></Type>
+		</Parameter>
 		<Body xmlns:al="http://anylogic.com"/>
 	</Function>
 </Functions>

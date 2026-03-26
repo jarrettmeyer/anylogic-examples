@@ -48,3 +48,27 @@ if (timeOfDay < dailyOpenTime) {
 return interarrivalTime;
 /*ALCODEEND*/}
 
+double getCustomerServiceTime()
+{/*ALCODESTART::1774536242516*/
+// Draw from triangular distribution
+double timeToFillOrder = triangular(minTimeToFillOrder, modeTimeToFillOrder, maxTimeToFillOrder);
+
+// Get efficiency from table
+double efficiency = workerEfficiencyTable[workerCount - 1];
+
+return timeToFillOrder / efficiency;
+/*ALCODEEND*/}
+
+double recordCustomerServed(Agent customer)
+{/*ALCODESTART::1774536272400*/
+Customer c = (Customer) customer;
+double waitTime = time() - c.enterQueueTime;
+
+dailyTotalWaitTime += waitTime;
+dailyCustomersServed++;
+dailyWorkerBusyTime += time() - c.serviceStartTime;
+
+leaveReview(waitTime);
+updateArrivalRate();
+/*ALCODEEND*/}
+

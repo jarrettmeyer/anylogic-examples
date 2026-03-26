@@ -627,7 +627,7 @@
 			<Parameter>
 				<Name><![CDATA[delayTime]]></Name>
 				<Value Class="CodeUnitValue">
-					<Code><![CDATA[triangular(minTimeToFillOrder, modeTimeToFillOrder, maxTimeToFillOrder) / workerEfficiencyTable[workerCount - 1]]]></Code>
+					<Code><![CDATA[getCustomerServiceTime()]]></Code>
 					<Unit Class="TimeUnits">MINUTE</Unit>
 				</Value>
 			</Parameter>
@@ -738,16 +738,7 @@ customer.serviceStartTime = time();]]></Code>
 			<Parameter>
 				<Name><![CDATA[onExit]]></Name>
 				<Value Class="CodeValue">
-					<Code><![CDATA[Customer customer = (Customer) agent;
-double waitTime = time() - customer.enterQueueTime;
-
-dailyTotalWaitTime += waitTime;
-dailyCustomersServed++;
-dailyWorkerBusyTime += time() - customer.serviceStartTime;
-
-leaveReview(waitTime);
-updateArrivalRate();
-]]></Code>
+					<Code><![CDATA[recordCustomerServed(agent);]]></Code>
 				</Value>
 			</Parameter>
 			<Parameter>

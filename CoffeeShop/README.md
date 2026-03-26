@@ -10,6 +10,13 @@ Customers leave reviews based on their wait time (queue wait + service time). Po
 
 At midnight each day, the model evaluates average wait time and worker utilization. If wait times are too high, a worker is hired. If utilization is too low, a worker is fired. Worker efficiency degrades as headcount grows due to shared equipment contention.
 
+## Process Flow
+
+```mermaid
+graph LR
+    customerSource --> fillOrderService --> customerSink
+```
+
 ## Parameters
 
 | Name                                       | Type     | Default                 | Description                                                                          |
@@ -34,3 +41,9 @@ At midnight each day, the model evaluates average wait time and worker utilizati
 **Notes**
 
 - `workerEfficiencyTable`: Array length sets the maximum number of workers. An array length of 5 means 5 maximum workers. Setting all values to 1.0 would make all workers 100% efficient.
+
+## Design Decisions
+
+**Triangular distribution for service time.** Service time uses a triangular distribution rather than exponential. This is safe because each order is processed atomically by the Service block — the worker starts and finishes without interruption. There are no handoffs, pauses, or restarts, so the memoryless property of the exponential distribution is not needed. The triangular distribution gives bounded, intuitive parameters (min/mode/max) that stakeholders can reason about directly.
+
+If the model were extended so that service could be interrupted and resumed (e.g., a worker takes a break mid-order), the triangular distribution would be problematic: the remaining service time would depend on how much time had already elapsed, requiring explicit state tracking. In that case, the exponential distribution's memoryless property would simplify the model — the remaining time always follows the same distribution regardless of elapsed time.

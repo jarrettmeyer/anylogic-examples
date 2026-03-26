@@ -3,14 +3,17 @@ void endOfDay()
 if (hireWorkers) {
     int maxWorkers = workerEfficiencyTable.length;
 
-    double averageDailyWaitTime = (dailyCustomersServed > 0)
-        ? dailyTotalWaitTime / dailyCustomersServed
-        : 0.0;
+    double averageDailyWaitTime = 0.0;
+    if (dailyCustomersServed > 0) {
+        averageDailyWaitTime = dailyTotalWaitTime / dailyCustomersServed;
+    }
 
     double operatingMinutes = dailyCloseTime - dailyOpenTime;
-    double dailyUtilization = (operatingMinutes * workerCount > 0)
-        ? Math.min(1.0, dailyWorkerBusyTime / (operatingMinutes * workerCount))
-        : 0.0;
+    double availableWorkerMinutes = operatingMinutes * workerCount;
+    double dailyUtilization = 0.0;
+    if (availableWorkerMinutes > 0) {
+        dailyUtilization = Math.min(1.0, dailyWorkerBusyTime / availableWorkerMinutes);
+    }
 
     if (averageDailyWaitTime >= hireWaitTimeThreshold && workerCount < maxWorkers) {
         workerCount++;
