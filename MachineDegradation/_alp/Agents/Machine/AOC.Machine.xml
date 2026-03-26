@@ -94,7 +94,6 @@
 	</ScaleRuler>
 	<CurrentLevel>1774538044828</CurrentLevel>
 	<ConnectionsId>1774538044823</ConnectionsId>
-	<Variables xmlns:al="http://anylogic.com"/>
 	<StatechartElements>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1774538718277</Id>
@@ -109,6 +108,9 @@
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
+				<EntryAction>// Send message
+send("Operation Changed", this);
+updateColor();</EntryAction>
 				<FillColor>-256</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -125,6 +127,9 @@
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
+				<EntryAction>// Send message
+send("Operation Changed", this);
+updateColor();</EntryAction>
 				<FillColor>-5374161</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -141,6 +146,9 @@
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
+				<EntryAction>// Send message
+send("Condition Changed", this);
+updateColor();</EntryAction>
 				<FillColor>-7278960</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -157,6 +165,9 @@
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
+				<EntryAction>// Send message
+send("Condition Changed", this);
+updateColor();</EntryAction>
 				<FillColor>-47872</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -208,8 +219,6 @@
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1774538718277" Target="1774538730045" Trigger="rate">
-				<Action>send("Operation Changed", this);
-updateColor();</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">HOUR</Unit>
@@ -250,9 +259,6 @@ updateColor();</Action>
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1774538730045" Target="1774538718277" Trigger="rate">
-				<Action>breakdownCount++;
-send("Operation Changed", this);
-updateColor();</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">HOUR</Unit>
@@ -317,8 +323,6 @@ updateColor();</Action>
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1774538821638" Target="1774538870637" Trigger="rate">
-				<Action>send("Condition Changed", this);
-updateColor();</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">HOUR</Unit>
@@ -359,8 +363,6 @@ updateColor();</Action>
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1774538870637" Target="1774538821638" Trigger="rate">
-				<Action>send("Condition Changed", this);
-updateColor();</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">HOUR</Unit>
