@@ -56,22 +56,6 @@
 		<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
 		<TimeWindowExpression>100</TimeWindowExpression>
 		<DatasetExpression>
-			<Id>1774546919848</Id>
-			<Expression>countRunningNominal</Expression>
-			<Color>-16744448</Color>
-			<Expression2>countRunningNominal</Expression2>
-			<Expression2Flag>true</Expression2Flag>
-			<Title>Running + Nominal</Title>
-		</DatasetExpression>
-		<DatasetExpression>
-			<Id>1774547041251</Id>
-			<Expression>countRunningDegraded</Expression>
-			<Color>-47872</Color>
-			<Expression2>countRunningDegraded</Expression2>
-			<Expression2Flag>true</Expression2Flag>
-			<Title>Running + Degraded</Title>
-		</DatasetExpression>
-		<DatasetExpression>
 			<Id>1774547860185</Id>
 			<Expression>countIdleNominal</Expression>
 			<Color>-7278960</Color>
@@ -80,12 +64,28 @@
 			<Title>Idle + Nominal</Title>
 		</DatasetExpression>
 		<DatasetExpression>
+			<Id>1774546919848</Id>
+			<Expression>countRunningNominal</Expression>
+			<Color>-16744448</Color>
+			<Expression2>countRunningNominal</Expression2>
+			<Expression2Flag>true</Expression2Flag>
+			<Title>Running + Nominal</Title>
+		</DatasetExpression>
+		<DatasetExpression>
 			<Id>1774547899837</Id>
 			<Expression>countIdleDegraded</Expression>
 			<Color>-23296</Color>
 			<Expression2>countIdleDegraded</Expression2>
 			<Expression2Flag>true</Expression2Flag>
 			<Title>Idle + Degraded</Title>
+		</DatasetExpression>
+		<DatasetExpression>
+			<Id>1774547041251</Id>
+			<Expression>countRunningDegraded</Expression>
+			<Color>-47872</Color>
+			<Expression2>countRunningDegraded</Expression2>
+			<Expression2Flag>true</Expression2Flag>
+			<Title>Running + Degraded</Title>
 		</DatasetExpression>
 		<SamplesToKeep>200</SamplesToKeep>
 		<VerScaleToExpression>1</VerScaleToExpression>
