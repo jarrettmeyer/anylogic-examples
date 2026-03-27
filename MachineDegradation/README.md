@@ -16,8 +16,8 @@ Main tracks the fleet by counting machines in each of the four combined states e
 
 States: `idle` (initial), `running`
 
-| Transition | Rate |
-| :--- | :--- |
+| Transition         | Rate                            |
+| :----------------- | :------------------------------ |
 | `idle` → `running` | `1 / getStartupTime()` per hour |
 | `running` → `idle` | `1 / getRunningTime()` per hour |
 
@@ -27,8 +27,8 @@ States: `idle` (initial), `running`
 
 States: `nominal` (initial), `degraded`
 
-| Transition | Rate |
-| :--- | :--- |
+| Transition             | Rate                                |
+| :--------------------- | :---------------------------------- |
 | `nominal` → `degraded` | `1 / getDegradationTime()` per hour |
 | `degraded` → `nominal` | `1 / getRestorationTime()` per hour |
 
@@ -36,17 +36,17 @@ States: `nominal` (initial), `degraded`
 
 ## Parameters
 
-| Name | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `machineCount` | int | 20 | Number of machines in the fleet |
-| `meanStartupTimeWhenNominal` | double | 0.5 | Mean hours for a nominal machine to start running |
-| `meanStartupTimeWhenDegraded` | double | 2.0 | Mean hours for a degraded machine to start running |
-| `meanRunningTimeWhenNominal` | double | 8.0 | Mean hours a nominal machine runs before going idle |
-| `meanRunningTimeWhenDegraded` | double | 1.0 | Mean hours a degraded machine runs before going idle |
-| `meanDegradationTimeWhenIdle` | double | 168.0 | Mean hours until an idle machine degrades (≈ 1 week) |
-| `meanDegradationTimeWhenRunning` | double | 48.0 | Mean hours until a running machine degrades (≈ 2 days) |
-| `meanRestorationTimeWhenIdle` | double | 1.0 | Mean hours to restore an idle degraded machine |
-| `meanRestorationTimeWhenRunning` | double | 72.0 | Mean hours to restore a running degraded machine (≈ 3 days) |
+| Name                             | Type   | Default | Description                                                 |
+| :------------------------------- | :----- | :------ | :---------------------------------------------------------- |
+| `machineCount`                   | int    | 20      | Number of machines in the fleet                             |
+| `meanStartupTimeWhenNominal`     | double | 0.5     | Mean hours for a nominal machine to start running           |
+| `meanStartupTimeWhenDegraded`    | double | 2.0     | Mean hours for a degraded machine to start running          |
+| `meanRunningTimeWhenNominal`     | double | 8.0     | Mean hours a nominal machine runs before going idle         |
+| `meanRunningTimeWhenDegraded`    | double | 1.0     | Mean hours a degraded machine runs before going idle        |
+| `meanDegradationTimeWhenIdle`    | double | 168.0   | Mean hours until an idle machine degrades (≈ 1 week)        |
+| `meanDegradationTimeWhenRunning` | double | 48.0    | Mean hours until a running machine degrades (≈ 2 days)      |
+| `meanRestorationTimeWhenIdle`    | double | 1.0     | Mean hours to restore an idle degraded machine              |
+| `meanRestorationTimeWhenRunning` | double | 72.0    | Mean hours to restore a running degraded machine (≈ 3 days) |
 
 ## Experiments
 
@@ -64,16 +64,16 @@ Both statecharts active with all default parameters. Degradation times are long 
 
 Parameters tuned so all four combined states are visibly present at equilibrium.
 
-| Parameter | Value |
-| :--- | :--- |
-| `meanStartupTimeWhenNominal` | 2.0 |
-| `meanStartupTimeWhenDegraded` | 4.0 |
-| `meanRunningTimeWhenNominal` | 5.0 |
-| `meanRunningTimeWhenDegraded` | 2.0 |
-| `meanDegradationTimeWhenIdle` | 24.0 |
-| `meanDegradationTimeWhenRunning` | 6.0 |
-| `meanRestorationTimeWhenIdle` | 0.5 |
-| `meanRestorationTimeWhenRunning` | 16.0 |
+| Parameter                        | Value |
+| :------------------------------- | :---- |
+| `meanStartupTimeWhenNominal`     | 2.0   |
+| `meanStartupTimeWhenDegraded`    | 4.0   |
+| `meanRunningTimeWhenNominal`     | 5.0   |
+| `meanRunningTimeWhenDegraded`    | 2.0   |
+| `meanDegradationTimeWhenIdle`    | 24.0  |
+| `meanDegradationTimeWhenRunning` | 6.0   |
+| `meanRestorationTimeWhenIdle`    | 0.5   |
+| `meanRestorationTimeWhenRunning` | 16.0  |
 
 Expected steady state (20 machines): ~10 Running+Nominal, ~3 Running+Degraded, ~6 Idle+Nominal, ~1 Idle+Degraded.
 
