@@ -57,7 +57,7 @@
 		<TimeWindowExpression>100</TimeWindowExpression>
 		<DatasetExpression>
 			<Id>1774546919848</Id>
-			<Expression>countRunningGood</Expression>
+			<Expression>countRunningNominal</Expression>
 			<Color>-16744448</Color>
 			<Expression2>countRunningNominal</Expression2>
 			<Expression2Flag>true</Expression2Flag>
@@ -73,7 +73,7 @@
 		</DatasetExpression>
 		<DatasetExpression>
 			<Id>1774547860185</Id>
-			<Expression>countOffGood</Expression>
+			<Expression>countIdleNominal</Expression>
 			<Color>-7278960</Color>
 			<Expression2>countIdleNominal</Expression2>
 			<Expression2Flag>true</Expression2Flag>
@@ -81,7 +81,7 @@
 		</DatasetExpression>
 		<DatasetExpression>
 			<Id>1774547899837</Id>
-			<Expression>countOffDegraded</Expression>
+			<Expression>countIdleDegraded</Expression>
 			<Color>-23296</Color>
 			<Expression2>countIdleDegraded</Expression2>
 			<Expression2Flag>true</Expression2Flag>

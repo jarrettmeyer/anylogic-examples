@@ -305,7 +305,7 @@
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[2.0]]></Code>
+				<Code><![CDATA[1.0]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774611630488</Id>

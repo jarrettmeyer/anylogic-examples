@@ -1,20 +1,20 @@
 double updateColor()
 {/*ALCODESTART::1774539148455*/
-boolean isOff = machineOperation.isStateActive(idle);
+boolean isIdle = machineOperation.isStateActive(idle);
 boolean isRunning = machineOperation.isStateActive(running);
-boolean isGood = machineCondition.isStateActive(nominal);
+boolean isNominal = machineCondition.isStateActive(nominal);
 boolean isDegraded = machineCondition.isStateActive(degraded);
 
-if (isRunning && isGood) {
+if (isRunning && isNominal) {
     machineIcon.setFillColor(main.colorRunningNominal);
 }
 if (isRunning && isDegraded) {
     machineIcon.setFillColor(main.colorRunningDegraded);
 }
-if (isOff && isGood) {
+if (isIdle && isNominal) {
     machineIcon.setFillColor(main.colorIdleNominal);
 }
-if (isOff && isDegraded) {
+if (isIdle && isDegraded) {
     machineIcon.setFillColor(main.colorIdleDegraded);
 }
 /*ALCODEEND*/}
