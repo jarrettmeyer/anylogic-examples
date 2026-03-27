@@ -165,7 +165,7 @@ moveTo(assignedStore.getX(), assignedStore.getY());</EntryAction>
 				<EntryAction>assignedStore.localInventory += loadedQuantity;
 assignedStore.hasPendingOrder = false;
 assignedStore.updateColor();
-loadedQuantity = 0.0;</EntryAction>
+loadedQuantity = 0;</EntryAction>
 				<FillColor>-10496</FillColor>
 			</Properties>
 		</StatechartElement>

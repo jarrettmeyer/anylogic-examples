@@ -309,11 +309,11 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-			<Type><![CDATA[double]]></Type>
+			<Type><![CDATA[int]]></Type>
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[50.0]]></Code>
+				<Code><![CDATA[50]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100307</Id>
@@ -393,11 +393,11 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-			<Type><![CDATA[double]]></Type>
+			<Type><![CDATA[int]]></Type>
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[20.0]]></Code>
+				<Code><![CDATA[10]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100310</Id>
@@ -422,11 +422,11 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-			<Type><![CDATA[double]]></Type>
+			<Type><![CDATA[int]]></Type>
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[50.0]]></Code>
+				<Code><![CDATA[50]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100311</Id>
@@ -450,11 +450,11 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-			<Type><![CDATA[double]]></Type>
+			<Type><![CDATA[int]]></Type>
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[50.0]]></Code>
+				<Code><![CDATA[0]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100312</Id>

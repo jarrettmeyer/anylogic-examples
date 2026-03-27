@@ -38,9 +38,9 @@
               Constant="false"
               AccessType="public"
               StaticVariable="false">
-			<Type><![CDATA[double]]></Type>
+			<Type><![CDATA[int]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[0.0]]></Code>
+				<Code><![CDATA[0]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>

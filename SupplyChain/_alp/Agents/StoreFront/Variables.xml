@@ -16,9 +16,9 @@
               Constant="false"
               AccessType="public"
               StaticVariable="false">
-			<Type><![CDATA[double]]></Type>
+			<Type><![CDATA[int]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[((Main)getOwner()).initialStoreInventory]]></Code>
+				<Code><![CDATA[(int) ((Main)getOwner()).initialStoreInventory]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>

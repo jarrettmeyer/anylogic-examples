@@ -36,21 +36,21 @@ stateDiagram-v2
 
 ## Parameters
 
-| Name                   | Type   | Default | Description                                        |
-| :--------------------- | :----- | :------ | :------------------------------------------------- |
-| `countStoreFronts`     | int    | 1       | Number of store front agents                       |
-| `countTrucks`          | int    | 1       | Number of truck agents                             |
-| `productionRate`       | double | 100.0   | Maximum distributor inflow (units/day)             |
-| `initialDaysBuffer`    | double | 2.0     | Target days of supply at the distributor           |
-| `truckSpeed`           | double | 50.0    | Truck speed (canvas units/day)                     |
-| `truckCapacity`        | double | 50.0    | Maximum units a truck can carry                    |
-| `meanDemandInterval`   | double | 1.0     | Mean days between demand events at each store      |
-| `meanDemandSize`       | double | 5.0     | Mean units consumed per demand event               |
-| `reorderPoint`         | double | 20.0    | Inventory level that triggers an order             |
-| `maxInventory`         | double | 50.0    | Target inventory level after replenishment         |
-| `initialStoreInventory`| double | 50.0    | Starting inventory at each store                   |
-| `canvasWidth`          | double | 800.0   | Width of the simulation canvas                     |
-| `canvasHeight`         | double | 600.0   | Height of the simulation canvas                    |
+| Name                    | Type   | Default | Description                                   |
+| :---------------------- | :----- | :------ | :-------------------------------------------- |
+| `countStoreFronts`      | int    | 1       | Number of store front agents                  |
+| `countTrucks`           | int    | 1       | Number of truck agents                        |
+| `productionRate`        | double | 100.0   | Maximum distributor inflow (units/day)        |
+| `initialDaysBuffer`     | double | 2.0     | Target days of supply at the distributor      |
+| `truckSpeed`            | double | 50.0    | Truck speed (canvas units/day)                |
+| `truckCapacity`         | double | 50.0    | Maximum units a truck can carry               |
+| `meanDemandInterval`    | double | 1.0     | Mean days between demand events at each store |
+| `meanDemandSize`        | double | 5.0     | Mean units consumed per demand event          |
+| `reorderPoint`          | double | 20.0    | Inventory level that triggers an order        |
+| `maxInventory`          | double | 50.0    | Target inventory level after replenishment    |
+| `initialStoreInventory` | double | 50.0    | Starting inventory at each store              |
+| `canvasWidth`           | double | 800.0   | Width of the simulation canvas                |
+| `canvasHeight`          | double | 600.0   | Height of the simulation canvas               |
 
 ### Notes
 
@@ -64,7 +64,7 @@ stateDiagram-v2
 
 **Condition trigger for truck dispatch instead of message.** Truck dispatch uses a condition transition (`assignedStore != null`) rather than a message trigger. AnyLogic message delivery requires agent connection links; without them, `send()` is silently dropped and the transition never fires. Setting `assignedStore` directly on the truck and polling via condition is reliable across all agent topologies.
 
-**`tryDispatch()` in the `idling` entry action.** When a truck completes a delivery and returns to the distributor, the `arrivedAtDistributor` transition action runs *before* the truck enters `idling`. Calling `tryDispatch()` from the transition action means `isIdling()` returns false — the truck hasn't entered the state yet — so queued orders are never picked up. Moving the call to the `idling` entry action ensures it runs after the state is active.
+**`tryDispatch()` in the `idling` entry action.** When a truck completes a delivery and returns to the distributor, the `arrivedAtDistributor` transition action runs _before_ the truck enters `idling`. Calling `tryDispatch()` from the transition action means `isIdling()` returns false — the truck hasn't entered the state yet — so queued orders are never picked up. Moving the call to the `idling` entry action ensures it runs after the state is active.
 
 **`assignedStore == null` guard in `tryDispatch()`.** Multiple stores can place orders at the same simulation timestep. Each order calls `tryDispatch()`, which checks `isIdling()`. Because AnyLogic condition transitions are evaluated at the next simulation event, a truck remains in `idling` for the duration of the current event step even after `assignedStore` is set. Without the `assignedStore == null` guard, a second call within the same step would overwrite the first assignment and orphan the first store's order permanently.
 
