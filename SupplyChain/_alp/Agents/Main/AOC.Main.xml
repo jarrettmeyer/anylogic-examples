@@ -2,11 +2,8 @@
 <ActiveObjectClass>
 	<Id>1774636705331</Id>
 	<Name><![CDATA[Main]]></Name>
-	<StartupCode><![CDATA[double margin = 50.0;
-double spacing = (canvasWidth - 2 * margin) / Math.max(1, countStoreFronts);
-for (int i = 0; i < storeFronts.size(); i++) {
-    StoreFront sf = storeFronts.get(i);
-    sf.setXY(margin + spacing * i + spacing / 2.0, canvasHeight * 0.75);
+	<StartupCode><![CDATA[for (StoreFront sf : storeFronts) {
+    sf.setXY(uniform(0, canvasWidth), uniform(0, canvasHeight));
     sf.updateColor();
 }
 for (Truck truck : trucks) {
@@ -57,13 +54,13 @@ for (Truck truck : trucks) {
 			<Unit Class="TimeUnits">SECOND</Unit>
 		</StepDurationCode>
 		<SpaceType>CONTINUOUS</SpaceType>
-		<WidthCode>500</WidthCode>
-		<HeightCode>500</HeightCode>
+		<WidthCode>canvasWidth</WidthCode>
+		<HeightCode>canvasHeight</HeightCode>
 		<ZHeightCode>0</ZHeightCode>
 		<ColumnsCountCode>100</ColumnsCountCode>
 		<RowsCountCode>100</RowsCountCode>
 		<NeigborhoodType>MOORE</NeigborhoodType>
-		<LayoutType>USER_DEF</LayoutType>
+		<LayoutType>RANDOM</LayoutType>
 		<NetworkType>USER_DEF</NetworkType>
 		<ConnectionsPerAgentCode>2</ConnectionsPerAgentCode>
 		<ConnectionsRangeCode>50</ConnectionsRangeCode>

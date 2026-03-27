@@ -5,8 +5,8 @@
 		<ReturnType>double</ReturnType>
 		<Id>1774650001001</Id>
 		<Name><![CDATA[updateColor]]></Name>
-		<X>400</X>
-		<Y>-140</Y>
+		<X>200</X>
+		<Y>40</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>

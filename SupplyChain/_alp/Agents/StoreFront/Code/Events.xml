@@ -3,8 +3,8 @@
 	<Event>
 		<Id>1774650000000</Id>
 		<Name><![CDATA[demandEvent]]></Name>
-		<X>400</X>
-		<Y>-160</Y>
+		<X>200</X>
+		<Y>20</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -14,7 +14,7 @@
 		<ShowLabel>true</ShowLabel>
 		<Properties TriggerType="timeout" Mode="cyclic">
 			<Timeout Class="CodeUnitValue">
-				<Code><![CDATA[exponential(((Main)getOwner()).meanDemandInterval)]]></Code>
+				<Code><![CDATA[exponential(main.meanDemandInterval)]]></Code>
 				<Unit Class="TimeUnits">DAY</Unit>
 			</Timeout>
 			<Rate Class="CodeUnitValue">
@@ -32,7 +32,7 @@
 				<Code><![CDATA[1]]></Code>
 				<Unit Class="TimeUnits">DAY</Unit>
 			</RecurrenceCode>
-			<Condition>false</Condition>
+			<Condition>true</Condition>
 		</Properties>
 		<Action xmlns:al="http://anylogic.com"/>
 	</Event>

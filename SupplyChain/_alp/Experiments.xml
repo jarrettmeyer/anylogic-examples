@@ -5,7 +5,7 @@
 		<Name><![CDATA[Simulation]]></Name>
 		<CommandLineArguments/>
 		<MaximumMemory>512</MaximumMemory>
-		<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+		<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 		<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 		<SeedValue>1</SeedValue>
 		<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
@@ -41,6 +41,9 @@
 		<Parameters>
 			<Parameter>
 				<ParameterName>countStoreFronts</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[3]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>countTrucks</ParameterName>
@@ -73,9 +76,6 @@
 				<ParameterName>reorderPoint</ParameterName>
 			</Parameter>
 			<Parameter>
-				<ParameterName>orderQuantity</ParameterName>
-			</Parameter>
-			<Parameter>
 				<ParameterName>initialStoreInventory</ParameterName>
 			</Parameter>
 			<Parameter>
@@ -83,6 +83,9 @@
 			</Parameter>
 			<Parameter>
 				<ParameterName>maxLoadWaitDays</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>maxInventory</ParameterName>
 			</Parameter>
 		</Parameters>
 		<PresentationProperties>
@@ -94,11 +97,11 @@
 			<RealTimeScale>1.0</RealTimeScale>
 		</PresentationProperties>
 		<ModelTimeProperties>
-			<StopOption>Never</StopOption>
+			<StopOption>Stop at specified time</StopOption>
 			<InitialDate>1774569600000</InitialDate>
 			<InitialTime>0.0</InitialTime>
-			<FinalDate>1777248000000</FinalDate>
-			<FinalTime>100.0</FinalTime>
+			<FinalDate>1837641600000</FinalDate>
+			<FinalTime>730.0</FinalTime>
 		</ModelTimeProperties>
 		<BypassInitialScreen>true</BypassInitialScreen>
 	</SimulationExperiment>

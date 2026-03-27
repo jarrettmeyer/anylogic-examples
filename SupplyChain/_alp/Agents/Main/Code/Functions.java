@@ -4,16 +4,18 @@ if (orderQueue.isEmpty()) {
     return 0;
 }
 for (Truck truck : trucks) {
-    if (truck.isIdling()) {
+    if (truck.isIdling() && truck.assignedStore == null) {
         StoreFront store = orderQueue.poll();
         if (store == null) {
             return 0;
         }
         pendingOrderCount = orderQueue.size();
-        truck.send(store, this);
+        traceln("t=" + time() + " dispatching truck to store, products=" + products);
+        truck.assignedStore = store;
         return 0;
     }
 }
+traceln("t=" + time() + " tryDispatch: no idling truck found, queue size=" + orderQueue.size());
 return 0;
 /*ALCODEEND*/}
 

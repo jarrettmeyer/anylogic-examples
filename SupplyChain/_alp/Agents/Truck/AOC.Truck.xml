@@ -25,7 +25,7 @@
 		<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
 		<RotateAnimationVertically>false</RotateAnimationVertically>
 		<VelocityCode Class="CodeUnitValue">
-			<Code><![CDATA[10]]></Code>
+			<Code><![CDATA[main.truckSpeed / 86400.0]]></Code>
 			<Unit Class="SpeedUnits">MPS</Unit>
 		</VelocityCode>
 		<OnArrival>arrivedAtDestination = true;</OnArrival>
@@ -110,6 +110,7 @@
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
+				<EntryAction>main.tryDispatch();</EntryAction>
 				<FillColor>-10496</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -144,7 +145,7 @@
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
 				<EntryAction>arrivedAtDestination = false;
-moveTo(assignedStore.getX(), assignedStore.getY(), main.truckSpeed);</EntryAction>
+moveTo(assignedStore.getX(), assignedStore.getY());</EntryAction>
 				<FillColor>-10496</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -182,7 +183,7 @@ loadedQuantity = 0.0;</EntryAction>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
 				<EntryAction>arrivedAtDestination = false;
-moveTo(main.canvasWidth / 2.0, main.canvasHeight - 50.0, main.truckSpeed);</EntryAction>
+moveTo(main.canvasWidth / 2.0, main.canvasHeight - 50.0);</EntryAction>
 				<FillColor>-10496</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -233,13 +234,13 @@ moveTo(main.canvasWidth / 2.0, main.canvasHeight - 50.0, main.truckSpeed);</Entr
 				</Point>
 			</Points>
 			<IconOffset>20.0</IconOffset>
-			<Properties Source="1774643562519" Target="1774643602319" Trigger="message">
-				<Action>assignedStore = (StoreFront)msg;</Action>
+			<Properties Source="1774643562519" Target="1774643602319" Trigger="condition">
+				<Action>traceln("t=" + time() + " truck dispatched to store, products=" + main.products);</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">DAY</Unit>
 				</Timeout>
-				<Condition>true</Condition>
+				<Condition>assignedStore != null</Condition>
 				<Rate Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="RateUnits">PER_DAY</Unit>
@@ -275,12 +276,12 @@ moveTo(main.canvasWidth / 2.0, main.canvasHeight - 50.0, main.truckSpeed);</Entr
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1774643602319" Target="1774643624036" Trigger="condition">
-				<Action>tryLoad();</Action>
+				<Action>traceln("t=" + time() + " truck loading, qty=" + (main.maxInventory - assignedStore.localInventory)); tryLoad();</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">DAY</Unit>
 				</Timeout>
-				<Condition>main.products &gt;= main.orderQuantity</Condition>
+				<Condition>main.products &gt;= (main.maxInventory - assignedStore.localInventory)</Condition>
 				<Rate Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="RateUnits">PER_DAY</Unit>
@@ -404,7 +405,7 @@ moveTo(main.canvasWidth / 2.0, main.canvasHeight - 50.0, main.truckSpeed);</Entr
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1774643687837" Target="1774643562519" Trigger="condition">
-				<Action>main.tryDispatch();</Action>
+				<Action>assignedStore = null;</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">DAY</Unit>

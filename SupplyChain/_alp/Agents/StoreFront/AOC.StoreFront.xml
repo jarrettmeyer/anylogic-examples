@@ -48,13 +48,13 @@
 			<Unit Class="TimeUnits">SECOND</Unit>
 		</StepDurationCode>
 		<SpaceType>CONTINUOUS</SpaceType>
-		<WidthCode>500</WidthCode>
-		<HeightCode>500</HeightCode>
+		<WidthCode>main.canvasWidth</WidthCode>
+		<HeightCode>main.canvasHeight</HeightCode>
 		<ZHeightCode>0</ZHeightCode>
 		<ColumnsCountCode>100</ColumnsCountCode>
 		<RowsCountCode>100</RowsCountCode>
 		<NeigborhoodType>MOORE</NeigborhoodType>
-		<LayoutType>USER_DEF</LayoutType>
+		<LayoutType>RANDOM</LayoutType>
 		<NetworkType>USER_DEF</NetworkType>
 		<ConnectionsPerAgentCode>2</ConnectionsPerAgentCode>
 		<ConnectionsRangeCode>50</ConnectionsRangeCode>

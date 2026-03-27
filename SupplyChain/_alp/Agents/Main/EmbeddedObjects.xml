@@ -81,6 +81,12 @@
 		<CollectionType>ARRAY_LIST_BASED</CollectionType>
 		<InEnvironment>true</InEnvironment>
 		<InitialLocationType>XYZ</InitialLocationType>
+		<XCode Class="CodeValue">
+			<Code><![CDATA[canvasWidth / 2.0]]></Code>
+		</XCode>
+		<YCode Class="CodeValue">
+			<Code><![CDATA[canvasHeight / 2.0]]></Code>
+		</YCode>
 		<ColumnCode Class="CodeValue">
 			<Code><![CDATA[0]]></Code>
 		</ColumnCode>

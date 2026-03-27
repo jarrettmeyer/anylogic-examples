@@ -285,7 +285,7 @@
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[200.0]]></Code>
+				<Code><![CDATA[50.0]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100306</Id>
@@ -369,7 +369,7 @@
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[10.0]]></Code>
+				<Code><![CDATA[5.0]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100309</Id>
@@ -410,7 +410,8 @@
 	</Variable>
 	<Variable Class="Parameter">
 		<Id>1774637100211</Id>
-		<Name><![CDATA[orderQuantity]]></Name>
+		<Name><![CDATA[maxInventory]]></Name>
+		<Description><![CDATA[Maximum amount of inventory that a store should have on hand]]></Description>
 		<X>320</X>
 		<Y>-30</Y>
 		<Label>
@@ -425,7 +426,7 @@
 			<UnitType>NONE</UnitType>
 			<SdArray>false</SdArray>
 			<DefaultValue Class="CodeValue">
-				<Code><![CDATA[40.0]]></Code>
+				<Code><![CDATA[50.0]]></Code>
 			</DefaultValue>
 			<ParameterEditor>
 				<Id>1774637100311</Id>
