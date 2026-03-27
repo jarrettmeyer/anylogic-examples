@@ -63,25 +63,25 @@
 			<Parameter>
 				<ParameterName>meanRunningTimeWhenDegraded</ParameterName>
 				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[1.0]]></Code>
+					<Code><![CDATA[2.0]]></Code>
 				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
 				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[16.0]]></Code>
+					<Code><![CDATA[24.0]]></Code>
 				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
 				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[4.0]]></Code>
+					<Code><![CDATA[6.0]]></Code>
 				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
 				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[4.0]]></Code>
+					<Code><![CDATA[0.5]]></Code>
 				</ParameterValue>
 			</Parameter>
 			<Parameter>
