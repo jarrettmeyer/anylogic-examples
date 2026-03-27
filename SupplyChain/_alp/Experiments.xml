@@ -42,11 +42,14 @@
 			<Parameter>
 				<ParameterName>countStoreFronts</ParameterName>
 				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[3]]></Code>
+					<Code><![CDATA[10]]></Code>
 				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>countTrucks</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[2]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>canvasWidth</ParameterName>
