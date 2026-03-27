@@ -97,7 +97,7 @@
 	<StatechartElements>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1774538718277</Id>
-			<Name><![CDATA[Off]]></Name>
+			<Name><![CDATA[idle]]></Name>
 			<X>50</X>
 			<Y>100</Y>
 			<Label>
@@ -116,7 +116,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1774538730045</Id>
-			<Name><![CDATA[Running]]></Name>
+			<Name><![CDATA[running]]></Name>
 			<X>50</X>
 			<Y>200</Y>
 			<Label>
@@ -135,7 +135,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1774538821638</Id>
-			<Name><![CDATA[Good]]></Name>
+			<Name><![CDATA[nominal]]></Name>
 			<X>50</X>
 			<Y>350</Y>
 			<Label>
@@ -154,7 +154,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1774538870637</Id>
-			<Name><![CDATA[Degraded]]></Name>
+			<Name><![CDATA[degraded]]></Name>
 			<X>50</X>
 			<Y>450</Y>
 			<Label>
@@ -173,7 +173,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 			<Id>1774538703163</Id>
-			<Name><![CDATA[MachineOperation]]></Name>
+			<Name><![CDATA[machineOperation]]></Name>
 			<X>100</X>
 			<Y>50</Y>
 			<Label>
@@ -197,7 +197,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1774538738044</Id>
-			<Name><![CDATA[fromOffToRunning]]></Name>
+			<Name><![CDATA[fromIdleToRunning]]></Name>
 			<X>100</X>
 			<Y>130</Y>
 			<Label>
@@ -225,7 +225,7 @@ updateColor();</EntryAction>
 				</Timeout>
 				<Condition>true</Condition>
 				<Rate Class="CodeUnitValue">
-					<Code><![CDATA[getStartupRate()]]></Code>
+					<Code><![CDATA[1.0 / getStartupTime()]]></Code>
 					<Unit Class="RateUnits">PER_HOUR</Unit>
 				</Rate>
 				<MessageType>Object</MessageType>
@@ -237,7 +237,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1774538747431</Id>
-			<Name><![CDATA[fromRunningToOff]]></Name>
+			<Name><![CDATA[fromRunningToIdle]]></Name>
 			<X>150</X>
 			<Y>200</Y>
 			<Label>
@@ -265,7 +265,7 @@ updateColor();</EntryAction>
 				</Timeout>
 				<Condition>true</Condition>
 				<Rate Class="CodeUnitValue">
-					<Code><![CDATA[getBreakdownRate()]]></Code>
+					<Code><![CDATA[1.0 / getRunningTime()]]></Code>
 					<Unit Class="RateUnits">PER_HOUR</Unit>
 				</Rate>
 				<MessageType>Object</MessageType>
@@ -277,7 +277,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 			<Id>1774538815069</Id>
-			<Name><![CDATA[MachineCondition]]></Name>
+			<Name><![CDATA[machineCondition]]></Name>
 			<X>100</X>
 			<Y>310</Y>
 			<Label>
@@ -301,7 +301,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1774538955062</Id>
-			<Name><![CDATA[fromGoodToDegraded]]></Name>
+			<Name><![CDATA[fromNominalToDegraded]]></Name>
 			<X>100</X>
 			<Y>380</Y>
 			<Label>
@@ -329,7 +329,7 @@ updateColor();</EntryAction>
 				</Timeout>
 				<Condition>true</Condition>
 				<Rate Class="CodeUnitValue">
-					<Code><![CDATA[1.0 / getMeanTimeToFailure()]]></Code>
+					<Code><![CDATA[1.0 / getDegradationTime()]]></Code>
 					<Unit Class="RateUnits">PER_HOUR</Unit>
 				</Rate>
 				<MessageType>Object</MessageType>
@@ -341,7 +341,7 @@ updateColor();</EntryAction>
 		</StatechartElement>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1774538964749</Id>
-			<Name><![CDATA[fromDegradedToGood]]></Name>
+			<Name><![CDATA[fromDegradedToNominal]]></Name>
 			<X>150</X>
 			<Y>450</Y>
 			<Label>
@@ -369,7 +369,7 @@ updateColor();</EntryAction>
 				</Timeout>
 				<Condition>true</Condition>
 				<Rate Class="CodeUnitValue">
-					<Code><![CDATA[1.0 / getMeanTimeToRepair()]]></Code>
+					<Code><![CDATA[1.0 / getRestorationTime()]]></Code>
 					<Unit Class="RateUnits">PER_HOUR</Unit>
 				</Rate>
 				<MessageType>Object</MessageType>
@@ -379,9 +379,9 @@ updateColor();</EntryAction>
 				<SatisfiesExpression>true</SatisfiesExpression>
 			</Properties>
 		</StatechartElement>
-		<StatechartElement Class="Transition" ParentState="Off" ParentStateId="1774538718277">
+		<StatechartElement Class="Transition" ParentState="idle" ParentStateId="1774538718277">
 			<Id>1774539022006</Id>
-			<Name><![CDATA[onConditionChanged_Off]]></Name>
+			<Name><![CDATA[machineConditionChanged_Idle]]></Name>
 			<X>190</X>
 			<Y>130</Y>
 			<Label>
@@ -420,10 +420,10 @@ updateColor();</EntryAction>
 			</Properties>
 		</StatechartElement>
 		<StatechartElement Class="Transition"
-                     ParentState="Running"
+                     ParentState="running"
                      ParentStateId="1774538730045">
 			<Id>1774539100487</Id>
-			<Name><![CDATA[onConditionChanged_Running]]></Name>
+			<Name><![CDATA[machineConditionChanged_Running]]></Name>
 			<X>190</X>
 			<Y>230</Y>
 			<Label>
@@ -461,9 +461,11 @@ updateColor();</EntryAction>
 				<SatisfiesExpression>true</SatisfiesExpression>
 			</Properties>
 		</StatechartElement>
-		<StatechartElement Class="Transition" ParentState="Good" ParentStateId="1774538821638">
+		<StatechartElement Class="Transition"
+                     ParentState="nominal"
+                     ParentStateId="1774538821638">
 			<Id>1774539459658</Id>
-			<Name><![CDATA[onOperationChanged_Good]]></Name>
+			<Name><![CDATA[machineOperationChanged_nominal]]></Name>
 			<X>190</X>
 			<Y>380</Y>
 			<Label>
@@ -502,10 +504,10 @@ updateColor();</EntryAction>
 			</Properties>
 		</StatechartElement>
 		<StatechartElement Class="Transition"
-                     ParentState="Degraded"
+                     ParentState="degraded"
                      ParentStateId="1774538870637">
 			<Id>1774539468683</Id>
-			<Name><![CDATA[onOperationChanged_Degraded]]></Name>
+			<Name><![CDATA[machineOperationChanged_degraded]]></Name>
 			<X>190</X>
 			<Y>480</Y>
 			<Label>
@@ -565,12 +567,12 @@ updateColor();</EntryAction>
 			<StatechartReference>
 				<PackageName>machinedegradation</PackageName>
 				<ClassName>Machine</ClassName>
-				<ItemName>MachineOperation</ItemName>
+				<ItemName>machineOperation</ItemName>
 			</StatechartReference>
 			<StatechartReference>
 				<PackageName>machinedegradation</PackageName>
 				<ClassName>Machine</ClassName>
-				<ItemName>MachineCondition</ItemName>
+				<ItemName>machineCondition</ItemName>
 			</StatechartReference>
 			<LineStyle>SOLID</LineStyle>
 			<LineWidth>1</LineWidth>

@@ -20,7 +20,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>double</ReturnType>
 		<Id>1774539312782</Id>
-		<Name><![CDATA[getStartupRate]]></Name>
+		<Name><![CDATA[getStartupTime]]></Name>
 		<X>560</X>
 		<Y>80</Y>
 		<Label>
@@ -36,7 +36,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>double</ReturnType>
 		<Id>1774539374353</Id>
-		<Name><![CDATA[getBreakdownRate]]></Name>
+		<Name><![CDATA[getRunningTime]]></Name>
 		<X>560</X>
 		<Y>100</Y>
 		<Label>
@@ -52,7 +52,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>double</ReturnType>
 		<Id>1774539397748</Id>
-		<Name><![CDATA[getMeanTimeToFailure]]></Name>
+		<Name><![CDATA[getDegradationTime]]></Name>
 		<X>560</X>
 		<Y>120</Y>
 		<Label>
@@ -68,7 +68,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>double</ReturnType>
 		<Id>1774539413843</Id>
-		<Name><![CDATA[getMeanTimeToRepair]]></Name>
+		<Name><![CDATA[getRestorationTime]]></Name>
 		<X>560</X>
 		<Y>140</Y>
 		<Label>
@@ -84,7 +84,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>boolean</ReturnType>
 		<Id>1774551137065</Id>
-		<Name><![CDATA[isOffGood]]></Name>
+		<Name><![CDATA[isIdleNominal]]></Name>
 		<X>560</X>
 		<Y>180</Y>
 		<Label>
@@ -100,7 +100,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>boolean</ReturnType>
 		<Id>1774551194895</Id>
-		<Name><![CDATA[isOffDegraded]]></Name>
+		<Name><![CDATA[isIdleDegraded]]></Name>
 		<X>560</X>
 		<Y>200</Y>
 		<Label>
@@ -116,7 +116,7 @@
 		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>boolean</ReturnType>
 		<Id>1774551208681</Id>
-		<Name><![CDATA[isRunningGood]]></Name>
+		<Name><![CDATA[isRunningNominal]]></Name>
 		<X>560</X>
 		<Y>220</Y>
 		<Label>

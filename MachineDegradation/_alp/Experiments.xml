@@ -42,6 +42,30 @@
 			<Parameter>
 				<ParameterName>machineCount</ParameterName>
 			</Parameter>
+			<Parameter>
+				<ParameterName>meanStartupTimeWhenNominal</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanStartupTimeWhenDegraded</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRunningTimeWhenNominal</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRunningTimeWhenDegraded</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRestorationTimeWhenRunning</ParameterName>
+			</Parameter>
 		</Parameters>
 		<PresentationProperties>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -102,6 +126,30 @@
 			<Parameter>
 				<ParameterName>machineCount</ParameterName>
 			</Parameter>
+			<Parameter>
+				<ParameterName>meanStartupTimeWhenNominal</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanStartupTimeWhenDegraded</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRunningTimeWhenNominal</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRunningTimeWhenDegraded</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRestorationTimeWhenRunning</ParameterName>
+			</Parameter>
 		</Parameters>
 		<PresentationProperties>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -161,6 +209,30 @@
 		<Parameters>
 			<Parameter>
 				<ParameterName>machineCount</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanStartupTimeWhenNominal</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanStartupTimeWhenDegraded</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRunningTimeWhenNominal</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRunningTimeWhenDegraded</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>meanRestorationTimeWhenRunning</ParameterName>
 			</Parameter>
 		</Parameters>
 		<PresentationProperties>

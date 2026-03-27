@@ -1,97 +1,97 @@
 double updateColor()
 {/*ALCODESTART::1774539148455*/
-boolean isOff = MachineOperation.isStateActive(Off);
-boolean isRunning = MachineOperation.isStateActive(Running);
-boolean isGood = MachineCondition.isStateActive(Good);
-boolean isDegraded = MachineCondition.isStateActive(Degraded);
+boolean isOff = machineOperation.isStateActive(idle);
+boolean isRunning = machineOperation.isStateActive(running);
+boolean isGood = machineCondition.isStateActive(nominal);
+boolean isDegraded = machineCondition.isStateActive(degraded);
 
 if (isRunning && isGood) {
-    machineIcon.setFillColor(main.colorRunningGood);
+    machineIcon.setFillColor(main.colorRunningNominal);
 }
 if (isRunning && isDegraded) {
     machineIcon.setFillColor(main.colorRunningDegraded);
 }
 if (isOff && isGood) {
-    machineIcon.setFillColor(main.colorOffGood);
+    machineIcon.setFillColor(main.colorIdleNominal);
 }
 if (isOff && isDegraded) {
-    machineIcon.setFillColor(main.colorOffDegraded);
+    machineIcon.setFillColor(main.colorIdleDegraded);
 }
 /*ALCODEEND*/}
 
-double getStartupRate()
+double getStartupTime()
 {/*ALCODESTART::1774539312782*/
-// Rate (per hour) at which a machine transitions from Off to Running.
-// Degraded machines take longer to bring back online.
-if (MachineCondition.isStateActive(Good)) {
-    return 1.0 / 0.5;   // avg 30 minutes when in good condition
+if (machineCondition.isStateActive(nominal)) {
+    return main.meanStartupTimeWhenNominal;
 }
-if (MachineCondition.isStateActive(Degraded)) {
-    return 1.0 / 2.0;   // avg 2 hours when degraded
+
+if (machineCondition.isStateActive(degraded)) {
+    return main.meanStartupTimeWhenDegraded;
 }
-// MachineCondition not yet initialized; initial state is Good.
-return 1.0 / 0.5;
+
+// Initial state is Nominal
+return main.meanStartupTimeWhenNominal;
 /*ALCODEEND*/}
 
-double getBreakdownRate()
+double getRunningTime()
 {/*ALCODESTART::1774539374353*/
-// Rate (per hour) at which a running machine transitions to Off (breakdown).
-// Degraded machines break down much more frequently.
-if (MachineCondition.isStateActive(Good)) {
-    return 1.0 / 8.0;   // avg 8 hours before breakdown when in good condition
+if (machineCondition.isStateActive(nominal)) {
+    return main.meanRunningTimeWhenNominal;
 }
-if (MachineCondition.isStateActive(Degraded)) {
-    return 1.0 / 1.0;   // avg 1 hour before breakdown when degraded
+
+if (machineCondition.isStateActive(degraded)) {
+    return main.meanRunningTimeWhenDegraded;
 }
-// MachineCondition not yet initialized; initial state is Good.
-return 1.0 / 8.0;
+
+// Initial state is Nominal
+return main.meanRunningTimeWhenNominal;
 /*ALCODEEND*/}
 
-double getMeanTimeToFailure()
+double getDegradationTime()
 {/*ALCODESTART::1774539397748*/
-// Mean time (hours) for a machine to transition from Good to Degraded.
-// Running machines degrade faster than idle ones.
-if (MachineOperation.isStateActive(Running)) {
-    return 48.0;    // avg 2 days when running
+if (machineOperation.isStateActive(idle)) {
+    return main.meanDegradationTimeWhenIdle;
 }
-if (MachineOperation.isStateActive(Off)) {
-    return 168.0;   // avg 1 week when idle
+
+if (machineOperation.isStateActive(running)) {
+    return main.meanDegradationTimeWhenRunning;
 }
-// MachineOperation not yet initialized; initial state is Off.
-return 168.0;
+
+// Initial state is Idle
+return main.meanDegradationTimeWhenIdle;
 /*ALCODEEND*/}
 
-double getMeanTimeToRepair()
+double getRestorationTime()
 {/*ALCODESTART::1774539413843*/
-// Mean time (hours) for a degraded machine to recover to Good condition.
-// Off machines can be actively maintained; running ones recover slowly on their own.
-if (MachineOperation.isStateActive(Off)) {
-    return 1.0;     // avg 1 hour of maintenance when offline
+if (machineOperation.isStateActive(idle)) {
+    return main.meanRestorationTimeWhenIdle;
 }
-if (MachineOperation.isStateActive(Running)) {
-    return 72.0;    // avg 3 days of gradual recovery while running
+
+if (machineOperation.isStateActive(running)) {
+    return main.meanRestorationTimeWhenRunning;
 }
-// MachineOperation not yet initialized; initial state is Off.
-return 1.0;
+
+// Initial state is Idle.
+return main.meanRestorationTimeWhenIdle;
 /*ALCODEEND*/}
 
-boolean isOffGood()
+boolean isIdleNominal()
 {/*ALCODESTART::1774551137065*/
-return MachineOperation.isStateActive(Off) && MachineCondition.isStateActive(Good);
+return machineOperation.isStateActive(idle) && machineCondition.isStateActive(nominal);
 /*ALCODEEND*/}
 
-boolean isOffDegraded()
+boolean isIdleDegraded()
 {/*ALCODESTART::1774551194895*/
-return MachineOperation.isStateActive(Off) && MachineCondition.isStateActive(Degraded);
+return machineOperation.isStateActive(idle) && machineCondition.isStateActive(degraded);
 /*ALCODEEND*/}
 
-boolean isRunningGood()
+boolean isRunningNominal()
 {/*ALCODESTART::1774551208681*/
-return MachineOperation.isStateActive(Running) && MachineCondition.isStateActive(Good);
+return machineOperation.isStateActive(running) && machineCondition.isStateActive(nominal);
 /*ALCODEEND*/}
 
 boolean isRunningDegraded()
 {/*ALCODESTART::1774551218702*/
-return MachineOperation.isStateActive(Running) && MachineCondition.isStateActive(Degraded);
+return machineOperation.isStateActive(running) && machineCondition.isStateActive(degraded);
 /*ALCODEEND*/}
 
