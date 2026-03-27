@@ -2,7 +2,7 @@
 <Experiments>
 	<SimulationExperiment ActiveObjectClassId="1774537807472">
 		<Id>1774543448827</Id>
-		<Name><![CDATA[Calibration]]></Name>
+		<Name><![CDATA[Calibrated]]></Name>
 		<CommandLineArguments/>
 		<MaximumMemory>512</MaximumMemory>
 		<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
@@ -44,33 +44,57 @@
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanStartupTimeWhenNominal</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[2.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanStartupTimeWhenDegraded</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[4.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRunningTimeWhenNominal</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[5.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRunningTimeWhenDegraded</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[1.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[16.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[4.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[4.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenRunning</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[16.0]]></Code>
+				</ParameterValue>
 			</Parameter>
 		</Parameters>
 		<PresentationProperties>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
 			<ExecutionMode>realTimeScaled</ExecutionMode>
-			<Title>MachineDegradation : Calibration</Title>
+			<Title>MachineDegradation : Calibrated</Title>
 			<EnableDeveloperPanel>true</EnableDeveloperPanel>
 			<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
 			<RealTimeScale>1.0</RealTimeScale>
@@ -140,9 +164,15 @@
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[1.0E9]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[1.0E9]]></Code>
+				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
@@ -154,7 +184,7 @@
 		<PresentationProperties>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
 			<ExecutionMode>realTimeScaled</ExecutionMode>
-			<Title>MachineDegradation : Simulation</Title>
+			<Title>MachineDegradation : Phase01</Title>
 			<EnableDeveloperPanel>true</EnableDeveloperPanel>
 			<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
 			<RealTimeScale>1.0</RealTimeScale>
