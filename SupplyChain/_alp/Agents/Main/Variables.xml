@@ -80,7 +80,7 @@
               External="false"
               Constant="false"
               Array="false">
-			<Formula>productionRate</Formula>
+			<Formula>Math.max(0.0, productionRate - products / initialDaysBuffer)</Formula>
 			<Value>100.0</Value>
 			<Color>-4073239</Color>
 			<ValveIndex>1</ValveIndex>

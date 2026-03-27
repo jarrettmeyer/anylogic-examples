@@ -124,6 +124,50 @@ for (Truck truck : trucks) {
 			<LineWidth>1</LineWidth>
 			<Delay>false</Delay>
 		</Link>
+		<Link SourceId="1774637100205" TargetId="1774637039277" Polarity="null">
+			<Height>20.0</Height>
+			<PolarityPosition>0.95</PolarityPosition>
+			<Direction>
+				<X>0</X>
+				<Y>150</Y>
+			</Direction>
+			<Id>1774641749655</Id>
+			<Name><![CDATA[initialDaysBuffer - productionInflow]]></Name>
+			<X>160</X>
+			<Y>-40</Y>
+			<Label>
+				<X>40</X>
+				<Y>-50</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Color>-11832691</Color>
+			<LineWidth>1</LineWidth>
+			<Delay>false</Delay>
+		</Link>
+		<Link SourceId="1774637011766" TargetId="1774637039277" Polarity="null">
+			<Height>20.0</Height>
+			<PolarityPosition>0.95</PolarityPosition>
+			<Direction>
+				<X>0</X>
+				<Y>-100</Y>
+			</Direction>
+			<Id>1774641749656</Id>
+			<Name><![CDATA[products - productionInflow]]></Name>
+			<X>270</X>
+			<Y>130</Y>
+			<Label>
+				<X>40</X>
+				<Y>-50</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Color>-11832691</Color>
+			<LineWidth>1</LineWidth>
+			<Delay>false</Delay>
+		</Link>
 		<Link SourceId="1774637100204" TargetId="1774637011766" Polarity="null">
 			<Height>20.0</Height>
 			<PolarityPosition>0.95</PolarityPosition>
