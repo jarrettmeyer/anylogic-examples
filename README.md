@@ -5,3 +5,4 @@ This repo contains examples for [AnyLogic](https://www.anylogic.com/) simulation
 ## Examples
 
 - [CoffeeShop](./CoffeeShop/README.md)
+- [MachineDegradation](/MachineDegradation/README.md)
