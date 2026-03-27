@@ -12,14 +12,18 @@ Main tracks the fleet by counting machines in each of the four combined states e
 
 ## Statecharts
 
+> AnyLogic Rate transitions draw the holding time from an exponential distribution. A **rate** of `1.0 / meanTimeout` is equivalent to a **timeout** of `exponential(meanTimeout)` — both produce a holding time with mean `meanTimeout`.
+
 ### Operation Statechart (`machineOperation`)
 
 States: `idle` (initial), `running`
 
-| Transition         | Rate                            |
-| :----------------- | :------------------------------ |
-| `idle` → `running` | `1 / getStartupTime()` per hour |
-| `running` → `idle` | `1 / getRunningTime()` per hour |
+```mermaid
+stateDiagram-v2
+    [*] --> idle
+    idle --> running : rate = 1 / getStartupTime()
+    running --> idle : rate = 1 / getRunningTime()
+```
 
 `getStartupTime()` returns `meanStartupTimeWhenNominal` or `meanStartupTimeWhenDegraded` based on the condition statechart state. `getRunningTime()` works the same way.
 
@@ -27,32 +31,35 @@ States: `idle` (initial), `running`
 
 States: `nominal` (initial), `degraded`
 
-| Transition             | Rate                                |
-| :--------------------- | :---------------------------------- |
-| `nominal` → `degraded` | `1 / getDegradationTime()` per hour |
-| `degraded` → `nominal` | `1 / getRestorationTime()` per hour |
+```mermaid
+stateDiagram-v2
+    [*] --> nominal
+    nominal --> degraded : [allowMachinesToDegrade] rate = 1 / getDegradationTime()
+    degraded --> nominal : rate = 1 / getRestorationTime()
+```
 
 `getDegradationTime()` returns `meanDegradationTimeWhenIdle` or `meanDegradationTimeWhenRunning` based on the operation statechart state. `getRestorationTime()` works the same way.
 
 ## Parameters
 
-| Name                             | Type   | Default | Description                                                 |
-| :------------------------------- | :----- | :------ | :---------------------------------------------------------- |
-| `machineCount`                   | int    | 20      | Number of machines in the fleet                             |
-| `meanStartupTimeWhenNominal`     | double | 0.5     | Mean hours for a nominal machine to start running           |
-| `meanStartupTimeWhenDegraded`    | double | 2.0     | Mean hours for a degraded machine to start running          |
-| `meanRunningTimeWhenNominal`     | double | 8.0     | Mean hours a nominal machine runs before going idle         |
-| `meanRunningTimeWhenDegraded`    | double | 1.0     | Mean hours a degraded machine runs before going idle        |
-| `meanDegradationTimeWhenIdle`    | double | 168.0   | Mean hours until an idle machine degrades (≈ 1 week)        |
-| `meanDegradationTimeWhenRunning` | double | 48.0    | Mean hours until a running machine degrades (≈ 2 days)      |
-| `meanRestorationTimeWhenIdle`    | double | 1.0     | Mean hours to restore an idle degraded machine              |
-| `meanRestorationTimeWhenRunning` | double | 72.0    | Mean hours to restore a running degraded machine (≈ 3 days) |
+| Name                             | Type    | Default | Description                                                 |
+| :------------------------------- | :------ | :------ | :---------------------------------------------------------- |
+| `machineCount`                   | int     | 20      | Number of machines in the fleet                             |
+| `allowMachinesToDegrade`         | boolean | true    | Feature flag allowing machines to degrade                   |
+| `meanStartupTimeWhenNominal`     | double  | 0.5     | Mean hours for a nominal machine to start running           |
+| `meanStartupTimeWhenDegraded`    | double  | 2.0     | Mean hours for a degraded machine to start running          |
+| `meanRunningTimeWhenNominal`     | double  | 8.0     | Mean hours a nominal machine runs before going idle         |
+| `meanRunningTimeWhenDegraded`    | double  | 1.0     | Mean hours a degraded machine runs before going idle        |
+| `meanDegradationTimeWhenIdle`    | double  | 168.0   | Mean hours until an idle machine degrades (≈ 1 week)        |
+| `meanDegradationTimeWhenRunning` | double  | 48.0    | Mean hours until a running machine degrades (≈ 2 days)      |
+| `meanRestorationTimeWhenIdle`    | double  | 1.0     | Mean hours to restore an idle degraded machine              |
+| `meanRestorationTimeWhenRunning` | double  | 72.0    | Mean hours to restore a running degraded machine (≈ 3 days) |
 
 ## Experiments
 
 ### Phase01 — Operation only (baseline)
 
-Condition statechart is effectively locked to `nominal` by setting both degradation times to `1.0E9` hours. Machines cycle between `idle` and `running` at the nominal rates only.
+`allowMachinesToDegrade` is set to `false`, locking all machines in `nominal`. Machines cycle between `idle` and `running` at the nominal rates only.
 
 Expected behavior: only Running+Nominal and Idle+Nominal states appear. Running count mean ≈ `machineCount × R / (R + S)` where R = `meanRunningTimeWhenNominal` and S = `meanStartupTimeWhenNominal`.
 
@@ -81,7 +88,7 @@ Expected steady state (20 machines): ~10 Running+Nominal, ~3 Running+Degraded, ~
 
 **Exponential distribution for all transition times.** Both statecharts use rate-triggered transitions, which are equivalent to exponential holding times. This is the correct choice because each machine is always in exactly one state in each statechart, and the memoryless property of the exponential distribution means the pending time-to-transition does not depend on how long the machine has already been in that state.
 
-This matters for the coupling mechanism: when a machine degrades while running, the `running → idle` self-loop fires, discarding the old pending timeout and drawing a new one at the degraded rate. With a non-memoryless distribution (e.g., triangular, normal), discarding a partially-elapsed timeout and restarting would introduce bias — the machine would effectively get a "fresh draw" at an arbitrary point in its holding time. The exponential distribution avoids this entirely: a fresh draw and a residual draw are statistically identical.
+This matters for the coupling mechanism: when a machine degrades while running, the `running → idle` self-loop fires, discarding the old pending timeout and drawing a new one at the degraded rate. With a non-memoryless distribution (e.g., triangular, normal), discarding a partially-elapsed timeout and restarting would introduce bias. The machine would effectively get a "fresh draw" at an arbitrary point in its holding time. The exponential distribution avoids this entirely: a fresh draw and a residual draw are statistically identical.
 
 **Message-triggered self-loops for rate recalculation.** When the condition statechart transitions, it sends `"Condition Changed"` to itself. The operation statechart has self-loops on both `idle` and `running` that filter for this message. Firing the self-loop causes AnyLogic to re-enter the state and redraw the pending timeout using the current rate expression, which now queries the updated condition state. The same pattern runs in reverse (`"Operation Changed"`) for the condition statechart. This avoids polling and keeps the coupling event-driven.
 

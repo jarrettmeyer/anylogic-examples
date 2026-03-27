@@ -327,6 +327,7 @@
 					<Code><![CDATA[1.0 / getDegradationTime()]]></Code>
 					<Unit Class="RateUnits">PER_HOUR</Unit>
 				</Rate>
+				<Guard>main.allowMachinesToDegrade</Guard>
 				<MessageType>Object</MessageType>
 				<DefaultTransition>true</DefaultTransition>
 				<FilterType>unconditionally</FilterType>

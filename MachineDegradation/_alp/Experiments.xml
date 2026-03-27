@@ -90,6 +90,9 @@
 					<Code><![CDATA[16.0]]></Code>
 				</ParameterValue>
 			</Parameter>
+			<Parameter>
+				<ParameterName>allowMachinesToDegrade</ParameterName>
+			</Parameter>
 		</Parameters>
 		<PresentationProperties>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -164,21 +167,21 @@
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenIdle</ParameterName>
-				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[1.0E9]]></Code>
-				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanDegradationTimeWhenRunning</ParameterName>
-				<ParameterValue Class="CodeValue">
-					<Code><![CDATA[1.0E9]]></Code>
-				</ParameterValue>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenIdle</ParameterName>
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenRunning</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>allowMachinesToDegrade</ParameterName>
+				<ParameterValue Class="CodeValue">
+					<Code><![CDATA[false]]></Code>
+				</ParameterValue>
 			</Parameter>
 		</Parameters>
 		<PresentationProperties>
@@ -263,6 +266,9 @@
 			</Parameter>
 			<Parameter>
 				<ParameterName>meanRestorationTimeWhenRunning</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>allowMachinesToDegrade</ParameterName>
 			</Parameter>
 		</Parameters>
 		<PresentationProperties>
