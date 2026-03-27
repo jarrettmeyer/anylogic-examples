@@ -154,7 +154,7 @@ for (Truck truck : trucks) {
 				<Y>-100</Y>
 			</Direction>
 			<Id>1774641749656</Id>
-			<Name><![CDATA[products - productionInflow]]></Name>
+			<Name><![CDATA[distributorInventory - productionInflow]]></Name>
 			<X>270</X>
 			<Y>130</Y>
 			<Label>
@@ -176,7 +176,7 @@ for (Truck truck : trucks) {
 				<Y>150</Y>
 			</Direction>
 			<Id>1774641749653</Id>
-			<Name><![CDATA[productionRate - products]]></Name>
+			<Name><![CDATA[productionRate - distributorInventory]]></Name>
 			<X>160</X>
 			<Y>-20</Y>
 			<Label>
@@ -198,7 +198,7 @@ for (Truck truck : trucks) {
 				<Y>150</Y>
 			</Direction>
 			<Id>1774641749654</Id>
-			<Name><![CDATA[initialDaysBuffer - products]]></Name>
+			<Name><![CDATA[initialDaysBuffer - distributorInventory]]></Name>
 			<X>160</X>
 			<Y>-40</Y>
 			<Label>

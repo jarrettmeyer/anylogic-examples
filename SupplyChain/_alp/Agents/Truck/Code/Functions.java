@@ -1,7 +1,7 @@
 double tryLoad()
 {/*ALCODESTART::1774650002000*/
-int quantity = (int) Math.round(Math.min(main.maxInventory - assignedStore.localInventory, main.products));
-main.products -= quantity;
+int quantity = (int) Math.round(Math.min(main.maxInventory - assignedStore.localInventory, main.distributorInventory));
+main.distributorInventory -= quantity;
 loadedQuantity = quantity;
 /*ALCODEEND*/}
 

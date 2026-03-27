@@ -10,7 +10,7 @@ for (Truck truck : trucks) {
             return 0;
         }
         pendingOrderCount = orderQueue.size();
-        traceln("t=" + time() + " dispatching truck to store, products=" + products);
+        traceln("t=" + time() + " dispatching truck to store, distributorInventory=" + distributorInventory);
         truck.assignedStore = store;
         return 0;
     }

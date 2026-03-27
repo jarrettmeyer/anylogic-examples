@@ -46,7 +46,7 @@
 	</Variable>
 	<Variable Class="StockVariable">
 		<Id>1774637011766</Id>
-		<Name><![CDATA[products]]></Name>
+		<Name><![CDATA[distributorInventory]]></Name>
 		<X>270</X>
 		<Y>130</Y>
 		<Label>
@@ -80,7 +80,7 @@
               External="false"
               Constant="false"
               Array="false">
-			<Formula>Math.max(0.0, productionRate - products / initialDaysBuffer)</Formula>
+			<Formula>Math.max(0.0, productionRate - distributorInventory / initialDaysBuffer)</Formula>
 			<Value>100.0</Value>
 			<Color>-4073239</Color>
 			<ValveIndex>1</ValveIndex>
