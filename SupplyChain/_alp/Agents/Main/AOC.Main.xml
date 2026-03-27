@@ -7,7 +7,7 @@
     sf.updateColor();
 }
 for (Truck truck : trucks) {
-    truck.setXY(canvasWidth / 2.0, canvasHeight - 50.0);
+    truck.setXY(canvasWidth / 2.0, canvasHeight / 2.0);
 }]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>

@@ -183,7 +183,7 @@ loadedQuantity = 0.0;</EntryAction>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="150" Height="30">
 				<EntryAction>arrivedAtDestination = false;
-moveTo(main.canvasWidth / 2.0, main.canvasHeight - 50.0);</EntryAction>
+moveTo(main.canvasWidth / 2.0, main.canvasHeight / 2.0);</EntryAction>
 				<FillColor>-10496</FillColor>
 			</Properties>
 		</StatechartElement>
